@@ -1,16 +1,22 @@
-<p>login works!</p>
+<p>Login works!</p>
 
-<form [formGroup] = "profile" (ngSubmit)="handleSubmit()" >
-    <label for="username">Email</label>
-    <input type="text" formControlName="email" id="email">
-    <div *ngIf="profile.get('email')?.touched && profile.get('email')?.invalid">
-        <small *ngIf="profile.get('email')?.errors?.['required']">Email is required.</small>
-        <small *ngIf="profile.get('email')?.errors?.['email']" style="color: red;">Please enter a valid email.</small>
-      </div>
+<form [formGroup]="profile" (ngSubmit)="handleSubmit()">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" formControlName="email" id="email" placeholder="Enter your email" />
+    <div *ngIf="profile.get('email')?.touched && profile.get('email')?.invalid" class="error">
+      <small *ngIf="profile.get('email')?.errors?.['required']">Email is required.</small>
+      <small *ngIf="profile.get('email')?.errors?.['email']">Please enter a valid email.</small>
+    </div>
+  </div>
+
+  <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" name="" formControlName="password"   id="password">
-    <div *ngIf="profile.get('password')?.touched && profile.get('password')?.invalid">
-        <small style="color: red;"  >Password is required.</small>
-      </div>
-    <button type="submit"  >Submit</button>
+    <input type="password" formControlName="password" id="password" placeholder="Enter your password" />
+    <div *ngIf="profile.get('password')?.touched && profile.get('password')?.invalid" class="error">
+      <small>Password is required.</small>
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
 </form>

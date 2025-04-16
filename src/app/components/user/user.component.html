@@ -1,6 +1,14 @@
-<p>user works!</p>
-<div *ngIf="userInfo">
-    <div *ngIf="userInfo.data">
-     <DIV>HELLO {{userInfo.data[5].email}}</DIV>
-    </div>
+<p>User works!</p>
+
+<div *ngIf="userInfo?.data" class="user-grid">
+  <div *ngFor="let x of userInfo.data" class="user-card">
+    <ul>
+      <li><strong>Email:</strong> {{ x.email }}</li>
+      <li><strong>First Name:</strong> {{ x.first_name }}</li>
+      <li><strong>Last Name:</strong> {{ x.last_name }}</li>
+      <li>
+        <img [src]="x.avatar" alt="{{ x.first_name }} {{ x.last_name }}" />
+      </li>
+    </ul>
   </div>
+</div>

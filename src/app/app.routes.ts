@@ -21,12 +21,11 @@ export const routes: Routes = [
     },
     {
         path:"cart",
-        canActivate:[linkGuardGuard],
-        component:CartComponent
+        component:CartComponent,
+        canActivate:[linkGuardGuard]
     },
     {
         path:"user",
-       
         component:UserComponent
     },
    
