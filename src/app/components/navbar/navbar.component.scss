@@ -1,0 +1,46 @@
+// Variables
+$primary-color: #333;
+$accent-color: #f7a15c;
+$hover-color: #e65c00;
+$link-color: #fff;
+$link-font-size: 18px;
+$link-padding: 10px 15px;
+$link-margin: 0 15px;
+$link-radius: 5px;
+
+// General Styling for the navigation
+nav {
+    background-color: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    // Responsive Design
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+// Styling for each link
+.nav-link {
+    color: $link-color;
+    text-decoration: none;
+    font-size: $link-font-size;
+    margin: $link-margin;
+    padding: $link-padding;
+    border-radius: $link-radius;
+    transition: background-color 0.3s, color 0.3s;
+
+    // Hover effect
+    &:hover {
+        background-color: $accent-color;
+        color: $primary-color;
+    }
+
+    // Active link styling
+    &:active {
+        background-color: $hover-color;
+    }
+}

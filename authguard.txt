@@ -1,0 +1,56 @@
+use authGuard :
+ng g guard
+guardName: linkguard.guard
+
+yo ma 
+
+import { inject, Injectable } from '@angular/core';
+import { CanActivateFn } from '@angular/router';
+import { Router } from '@angular/router';
+export const linkGuardGuard: CanActivateFn = (route, state) => {
+  const value = localStorage.getItem("apiToken")
+  if(value){
+    return true;
+  }
+ else{
+  const router= inject(Router);
+  router.navigate([''])
+  return false;
+ }
+};
+
+yo ma xai api token line ani yedi xa vane true return hoina vane
+false ani router.navigate(['kun thau ma dekhaune tyo ko route'])
+
+
+
+auth service ma xai 
+  import { Injectable } from '@angular/core';
+  import { HttpClient } from '@angular/common/http';
+  import { Observable } from 'rxjs';
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class AuthService {
+
+    url:string="https://reqres.in/api/login"
+    constructor(private http:HttpClient) { }
+
+    login(email:string, password:string):Observable<any>{
+      console.log(email)
+      console.log(password)
+      return this.http.post(this.url,{email,password})
+    }
+  }
+
+
+yesle xai login bata aako email ra password lai return garxa post ma yo xai login 
+garne bela pathaune ho
+
+yo ma alikati baki xa ...
+
+
+interceptor:
+ng g interceptor interceptors/auth
+
+pahila token xa ki xaina check garne ani tespaxi tyo token authorization ma halera pathaune 
